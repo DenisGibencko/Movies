@@ -1,0 +1,581 @@
+/*Обнуление*/
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+/*--------------------*/
+
+
+/*Шрифты, технические классы и повторяющиеся блоки------------------------------------------------------------------------------------------------------------------------*/
+
+body{
+	background: #FAFDFE;
+	font-family: Arial, sans-serif;
+}
+
+body._lock{
+	overflow: hidden;
+}
+
+.wrapper{
+	min-height: 100%;
+	min-width: 100%;
+	overflow: hidden;
+}
+
+._container{
+	max-width: 1230px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.page{
+	
+	position: absolute;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.main{
+	flex: 1 1 100%;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.ibg{
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+}
+
+.ibg img{
+	width: 0;
+	height: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
+/*Шапка Кино портала------------------------------------------------------------------------------------------------------------------------*/
+
+
+.header {
+	padding: 45px 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.header._active{
+	height: 100%;
+}
+.header__container{
+	max-width: 1430px;
+	margin: 0 auto;
+	padding: 0 15px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.header__logo img{
+	width: 45px;
+}
+.header__body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.header__menu {
+	z-index: 10;
+	height: 100%;
+	overflow: auto;
+}
+.menu {}
+.menu__list {
+	display: flex;
+}
+.menu__list > *:not(:last-child){
+	margin-right: 80px;
+}
+.menu__item {
+	position: relative;
+}
+.menu__item:after{
+	content: "";
+	transform: scale(0);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #D71F24;
+	transition: all 0.3s ease;
+}
+.menu__item:hover .menu__link{
+
+}
+.menu__item:hover:after{
+	transform: scale(1);
+	transition: all 0.3s ease;	
+}
+.menu__link {
+	color: #000;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 116%;
+}
+.header__icon {
+	height: 20px;
+	width: 30px;
+	position: relative;
+	display: none;
+	z-index: 10;
+}
+
+.header__icon span:first-child{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #000;
+}
+.header__icon span:nth-child(2){
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #000;
+}
+.header__icon span:last-child{
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 2px;
+	background: #000;
+}
+
+@media(max-width: 768px){
+	.menu__list > *:not(:last-child){
+		margin-right: 50px;
+	}	
+	.header__icon{
+		display: block;
+	}
+	.header__icon._active{
+
+	}
+
+	.header__icon._active span:first-child{
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: #000;
+		transform: rotate(-135deg);
+		background: white;
+		transition: all 0.3s ease;
+	}
+	.header__icon._active span:nth-child(2){
+		opacity: 0;
+		background: white;
+		transition: all 0.3s ease;
+	}
+	.header__icon._active span:last-child{
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: #000;
+		transform: rotate(135deg);
+		background: white;
+		transition: all 0.3s ease;
+}
+	.header__menu{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #D71F24;
+		padding-top: 100px;
+		transform: translate(0px, -200%);
+		transition: all 0.3s ease;
+		overflow: auto;
+	}
+
+
+	.header__menu._active{
+		transform: translate(0px, 0%);
+		overflow: auto;
+	}
+
+	.menu__list{
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.menu__list > *:not(:last-child){
+		margin-right: 0px;
+		margin-bottom: 40px;
+	}
+	.menu__link{
+		font-size: 40px;
+		color: white;
+		font-weight: bold;
+	}
+}
+
+@media(max-width: 650px){
+	
+}
+
+.your-list {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.your-list__label {
+	font-size: 20px;
+	color: lightgrey;
+	text-align: center;
+}
+
+/*Жанры Экран Кино портала------------------------------------------------------------------------------------------------------------------------*/
+
+
+.jenres {
+	margin: 150px 0 40px 0;
+	position: relative;
+
+}
+.jenres__title{
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+}
+.jenres__title-text{
+	color: #000;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 116%;
+	text-transform: uppercase;
+	position: relative;
+	padding-right: 10px;
+}
+.jenres__title:after{
+	content: "";
+	position: absolute;
+	top: 9px; 
+	right: -20px;
+}
+.jenres__arrow{
+	width: 0;
+	height: 0;
+	border-top: 10px solid #000;
+	border-right: 8px solid transparent;
+	border-left: 8px solid transparent;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.jenres__arrow._active{
+	transform: rotate(-180deg);
+	transition: all 0.3s ease;
+}
+.jenres__jenres{
+	transition: all 0.3s ease;
+}
+.jenres__jenres._active{
+	transition: all 0.3s ease;
+	display: block;
+}
+.jenres__row {
+	display: flex;
+	flex-wrap: wrap;
+	
+	transition: all 0.3s ease;
+}
+.jenres__row._active{
+	transition: all 0.3s ease;
+	
+}
+.jenres__col {
+	flex: 1 0 13.285%;
+}
+.jenres__item {
+
+
+	border-radius: 5px;
+}
+.item-jenres__jenre {
+	padding: 10px 20px;
+	margin: 2px 2px;
+	background: #C4C4C4;
+	font-size: 	20px;
+	display: flex;	
+	justify-content: center;	
+	align-items: center;	
+	text-align: center;	
+	transition: all 0.3s ease;
+}
+
+.item-jenres__jenre:hover{
+	transition: all 0.3s ease;
+	background: rgba(196, 196, 196, 0.5);
+}
+.jenres__item a{
+	color: black;
+}
+@media(min-width: 768px){
+	.jenres__arrow{
+		display: none;
+	}
+}
+@media(max-width: 768px){
+	.jenres__arrow{
+		display: block;
+	}
+	.jenres__jenres{
+		display: none;
+	}
+}
+@media(max-width: 425px){
+	.jenres__col {
+		flex: 1 0 13.285%;
+	}
+	.jenres__col {
+		flex: 1 0 100%;
+	}
+}
+
+/*Главный Экран Кино портала------------------------------------------------------------------------------------------------------------------------*/
+
+.main-screen {
+
+}
+
+.main-screen__row {
+	display: flex;
+	background: white;
+	border-radius: 26px;
+	box-shadow: 0 0 15px grey;
+
+}
+.main-screen__col {
+	flex: 0 0 30%;
+}
+.main-screen__col_b {
+	flex: 1 0 70%;
+}
+.main-screen__item {}
+.item-main {
+	height: 100%;
+}
+.item-main__image {
+	height: 100%;
+	border-radius: 26px 0 0px 26px;
+}
+.ibg {}
+.item-main__title {
+	color: #000;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 116%;
+	text-transform: uppercase;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.main-screen__row .main-screen__col:last-child .main-screen__item{
+	padding: 64px 20px 114px 20px;
+}
+
+.item-main__text {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 140%;
+	text-transform: capitalize;
+	text-align: justify;
+}
+.item-main__text:not(:last-child){
+	margin-bottom: 64px;
+}
+.item-main__button {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	min-height: 64px;
+	padding: 5px 46px;
+	font-weight: 700;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: white;
+	background: #D71F24;
+	border-radius: 100px;	
+	transition: all 0.3s ease;
+}
+
+.item-main__button:hover{
+	background: rgba(215, 31, 36, 0.8);
+	transition: all 0.3s ease;
+}
+
+@media(max-width: 854px){
+	.main-screen__row{
+		flex-direction: column;
+		text-align: center;
+	}
+	.item-main__image{
+		padding-bottom: 56%;
+		border-radius: 26px 26px 0 0px;
+	}
+	.main-screen__row .main-screen__col:last-child .main-screen__item{
+		padding: 24px 20px 24px 20px;
+	}
+}
+@media(max-width: 425px){
+	.item-main__text{
+		font-size: 11px;
+	}
+	.item-main__text:not(:last-child){
+		margin-bottom: 34px;
+	}
+}
+
+/*Топ фильмов Кино портала------------------------------------------------------------------------------------------------------------------------*/
+.tmovies {
+	padding: 37px 0 50px 0;
+}
+.main-screen__title{
+	font-size: 30px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 20px;
+}
+.tmovies__label {
+	text-transform: uppercase;
+	margin-bottom: 14px;
+}
+.tmovies__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0 -22px;
+	flex-wrap: 
+}
+.tmovies__col {
+	flex: 0 0 16.666%;
+	padding: 0 22px;
+}
+.tmovies__item {
+	height: 100%;
+}
+.item-tmovies__image {
+	max-height: 200px;
+	max-width: 200px;
+	padding-bottom: 141%;
+	border-radius: 30px;	
+}
+
+@media(max-width: 1000px){
+
+	.tmovies__col{
+		flex: 0 0 25%;
+		margin-bottom: 22px;
+	}
+}
+
+@media(max-width: 768px){
+	.tmovies__col{
+		flex: 0 0 27%;
+	}
+}
+
+@media(max-width: 600px){
+	.tmovies__col{
+		flex: 0 0 100%;
+
+	}
+	.item-tmovies__image {
+		min-width: 100%;
+	}
+}
+
+/*Топ фильмов Кино портала------------------------------------------------------------------------------------------------------------------------*/
+
+.footer {
+	padding: 20px 0;
+	background: #181818;
+}
+.footer__container{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.footer__name {
+	font-size: 16px;
+	color: #777777;
+}
+.footer__name span{
+	text-decoration: underline;
+}
+.footer__socials {
+	display: flex;
+}
+.footer__socials > *:not(:last-child){
+	margin-right: 20px;
+}
+.footer__social {}
+.footer__social ion-icon{
+	font-size: 20px;
+	color: #777777;
+}
+
+
+@media(max-width: 600px){
+	.footer__container{
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.footer__container > *:not(:last-child){
+		margin-bottom: 30px;
+	}
+}
+
